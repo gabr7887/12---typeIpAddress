@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IpAddressTracker</title>
+</head>
+
+<body>
+  <div id="search">
+    <form id="ipForm">
+      <label for="ip">Ip</label>
+      <input type="text" id="ip" name="ip">
+      <button><img src="./images/icon-arrow.svg" alt=""></button>
+    </form>
+  </div>
+  <div id="info">
+    <ul>
+      <li>
+        <span>IP ADDRESS</span>
+        <p class="info-Result" id="ipResult"></p>
+      </li>
+      <li>
+        <span>LOCATION</span>
+        <p class="info-Result" id="locationResult"></p>
+      </li>
+      <li>
+        <span>TIMEZONE</span>
+        <p class="info-Result" id="timeResult"></p>
+      </li>
+      <li>
+        <span>ISP</span>
+        <p class="info-Result" id="ispResult"></p>
+      </li>
+    </ul>
+  </div>
+  <div id="map" style="height: 180px;">
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
+</html>
