@@ -31,7 +31,6 @@ export default class IpHandler{
   locationElement: HTMLElement | null;
   timeElement: HTMLElement | null;
   ispElement: HTMLElement | null;
-  data: ipSearch | null;
   Map: Map;
   constructor(infoDivId: string, map: Map) {
     this.form = document.forms[0];
@@ -41,7 +40,6 @@ export default class IpHandler{
     this.locationElement = this.infoDiv ? this.infoDiv.querySelector('#locationResult') : null;
     this.timeElement = this.infoDiv ? this.infoDiv.querySelector('#timeResult') : null;
     this.ispElement = this.infoDiv ? this.infoDiv.querySelector('#ispResult') : null;
-    this.data = null;
     this.Map = map;
 
     this.handleForm = this.handleForm.bind(this);
@@ -52,14 +50,17 @@ export default class IpHandler{
 
   async handleForm(event: Event) {
     event.preventDefault();
-    if((!this.form) || !(this.formInput instanceof HTMLInputElement)) throw new Error('form invalido');
+    if((!this.form) || !(this.formInput instanceof HTMLInputElement) || !(this.ipElement instanceof HTMLParagraphElement) || !(this.locationElement instanceof HTMLParagraphElement) || !(this.timeElement instanceof HTMLParagraphElement) || !(this.ispElement instanceof HTMLParagraphElement)) throw new Error('form invalido');
 
     try{
       if(!this.formInput.value.length) throw new Error('input vazio');
       const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_WDFbPDuuTyt5oL9EQb36L4Asw1Fxg&ipAddress=${this.formInput.value}`);
       const dados: ipSearch = await response.json();
-      this.data = dados;
       this.Map.setLocation(dados.location.lat, dados.location.lng);
+      this.ipElement.innerText = dados.ip;
+      this.ispElement.innerText = dados.isp;
+      this.locationElement.innerText = `${dados.location.city},${dados.location.country}, ${dados.location.postalCode}`;
+      this.timeElement.innerText = dados.location.timezone;
     } catch(e: unknown) {
         if(e instanceof Error) console.log("um erro aconteceu");
     }

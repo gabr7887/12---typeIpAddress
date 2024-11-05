@@ -1,0 +1,28 @@
+*{
+  box-sizing: border-box;
+}
+
+body, ul{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  display: grid;
+}
+
+#search{
+  background-image: url('../images/pattern-bg-desktop.png');
+  position: relative;
+  height: 160px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+#info{
+  position: absolute;
+  bottom: -50%;
+  z-index: 9999;
+  justify-self: center;
+}
