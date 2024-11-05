@@ -4,6 +4,9 @@
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./node_modules/leaflet/dist/leaflet.css">
   <link rel="stylesheet" href="./src/index.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,26 +17,26 @@
   <div id="search">
     <form id="ipForm">
       <label for="ip">Ip</label>
-      <input type="text" id="ip" name="ip">
+      <input type="text" id="ip" name="ip" placeholder="Search For any Ip Addres or Domain">
       <button><img src="./images/icon-arrow.svg" alt=""></button>
     </form>
     <div id="info">
       <ul>
         <li>
           <span>IP ADDRESS</span>
-          <p class="info-Result" id="ipResult"></p>
+          <p class="info-Result" id="ipResult">Insert an Ip</p>
         </li>
         <li>
           <span>LOCATION</span>
-          <p class="info-Result" id="locationResult"></p>
+          <p class="info-Result" id="locationResult">Insert an Ip</p>
         </li>
         <li>
           <span>TIMEZONE</span>
-          <p class="info-Result" id="timeResult"></p>
+          <p class="info-Result" id="timeResult">Insert an Ip</p>
         </li>
         <li>
           <span>ISP</span>
-          <p class="info-Result" id="ispResult"></p>
+          <p class="info-Result" id="ispResult">Insert an Ip</p>
         </li>
       </ul>
     </div>

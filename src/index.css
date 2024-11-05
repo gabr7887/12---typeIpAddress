@@ -2,27 +2,115 @@
   box-sizing: border-box;
 }
 
-body, ul{
+body, ul, p{
   margin: 0;
   padding: 0;
 }
 
+ul{
+  list-style: none;
+}
+
 body{
   display: grid;
+  font-family: 'rubik';
 }
 
 #search{
   background-image: url('../images/pattern-bg-desktop.png');
   position: relative;
-  height: 160px;
-  display: grid;
+  height: 240px;
+  display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 20px;
+}
+
+#ipForm{
+  display: flex;
+  max-width: 60%;
+  flex: 1;
+}
+
+#ipForm label{
+  visibility: hidden;
+}
+
+#ipForm input{
+  font-size: 18px;
+  flex: 1;
+  padding: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 16px 0px 0px 16px;
+}
+
+#ipForm button{
+  background-color: hsl(0, 0%, 17%);
+  border: none;
+  cursor: pointer;
+  padding: 16px;
+  border-radius: 0px 16px 16px 0px;
 }
 
 #info{
   position: absolute;
-  bottom: -50%;
+  bottom: -30%;
   z-index: 9999;
   justify-self: center;
+  width: 80%;
+  background-color: white;
+  border-radius: 16px;
+  padding: 32px;
+}
+
+#info ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#info ul li{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#info ul li p{
+  font-weight: bold;
+  font-size: 18px;
+  color: hsl(0, 0%, 17%);
+}
+
+#info ul li span{
+  color: hsl(0, 0%, 59%);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+
+@media (width < 600px) {
+  #search{ 
+    height: 240px;
+    justify-content: initial;
+
+  }
+
+  #info{
+    display: flex;
+    bottom: -80%;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 40px);
+    text-align: center;
+  } 
+
+  #info ul{
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  #info ul li{
+    gap: 4px;
+  }
 }
